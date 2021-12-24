@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LogbackSpringApplication {
 
 	public static void main(String[] args) {
+		System.setProperty("SERVICE_SYSTEM","serviceSystemTest");
 		SpringApplication.run(LogbackSpringApplication.class, args);
 	}
 

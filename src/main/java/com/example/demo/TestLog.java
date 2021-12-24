@@ -14,7 +14,7 @@ import ch.qos.logback.core.util.StatusPrinter;
 public class TestLog {
 	
 	private Logger logger = LoggerFactory.getLogger("com.example.demo.TestLog");
-	private Logger loggerMDC = LoggerFactory.getLogger("LogTestMDC");
+	private Logger loggerMDC = LoggerFactory.getLogger("LogDebug");
     
 	@PostConstruct
 	public void testLog() {
@@ -22,9 +22,10 @@ public class TestLog {
 		// default level info
 		logger.debug("Hello world. Debug");  // not show
 		logger.info("Hello world. Info"); // show
+		logger.warn("Hello word. warn"); //show
 		
 		// add src/main/resources/logback-spring.xml
-		MDC.put("mdc1", "Test1");
+		MDC.put("TXN_REF_ID", "Test1");
 		loggerMDC.info("Test MDC1");
 		loggerMDC.error("Test MDC1 Error", new Exception("exception!!"));
 	}
